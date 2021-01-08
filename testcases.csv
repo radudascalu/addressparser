@@ -1,4 +1,6 @@
-address,street,housenumber
-"Winterallee 3",Winterallee,3
-"Musterstrasse 45",Musterstrasse,45
-"Blaufeldweg 123B",Blaufeldweg,123B
+difficulty,address,street,housenumber
+1,"Winterallee 3",Winterallee,3
+1,"Musterstrasse 45",Musterstrasse,45
+1,"Blaufeldweg 123B",Blaufeldweg,123B
+2,"Am Bächle 23",Am Bächle,23
+2,"Auf der Vogelwiese 23 b",Auf der Vogelwiese,23 b
