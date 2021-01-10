@@ -22,6 +22,13 @@ def separated_by_comma_rule(address):
     else:
         return parsed(parts[0], parts[1])
 
+def starts_with_number_rule(address):     
+    if not address[0].isdigit():
+        return not_parsed()
+    
+    parts = address.split(' ', 1)
+    return parsed(parts[1], parts[0])
+    
 def everything_after_first_digit_is_housenumber_rule(address):     
     parts = re.split(r'(^[^\d]+)', address)[1:]
     if len(parts) != 2:
@@ -37,6 +44,7 @@ def parse_address(address):
     
     parse_rules = [
         separated_by_comma_rule,
+        starts_with_number_rule,
         everything_after_first_digit_is_housenumber_rule
     ]
 
