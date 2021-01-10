@@ -29,6 +29,17 @@ def starts_with_number_rule(address):
     parts = address.split(' ', 1)
     return parsed(parts[1], parts[0])
     
+def housenumber_separator_rule(address):     
+    # TODO: add complete list of lower-cased separators in different languages
+    separators = [' no ', ' nr. ']
+    
+    for sep in separators:
+        idx = address.lower().find(sep)
+        if idx != -1:
+            return parsed(address[0:idx], address[idx + 1:])
+
+    return not_parsed()
+
 def everything_after_first_digit_is_housenumber_rule(address):     
     parts = re.split(r'(^[^\d]+)', address)[1:]
     if len(parts) != 2:
@@ -45,6 +56,7 @@ def parse_address(address):
     parse_rules = [
         separated_by_comma_rule,
         starts_with_number_rule,
+        housenumber_separator_rule,
         everything_after_first_digit_is_housenumber_rule
     ]
 

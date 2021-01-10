@@ -10,6 +10,9 @@ class TestParseAddress(unittest.TestCase):
     def run_testcases(self, difficulty):
         for idx, test_row in self.test_cases[self.test_cases.difficulty == difficulty].iterrows():
             parsed = parse_address(test_row['address'])
+            if parsed is None:
+                self.fail('Couldn\'t parse address: ' + test_row['address'])
+
             self.assertEqual(parsed['street'], test_row['street'])
             self.assertEqual(parsed['housenumber'], test_row['housenumber'])
 
