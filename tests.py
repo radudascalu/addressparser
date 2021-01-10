@@ -19,5 +19,8 @@ class TestParseAddress(unittest.TestCase):
     def test_advanced(self):
         self.run_testcases(2)
 
+    def test_complex(self):
+        self.run_testcases(3)
+
 if __name__ == "__main__":
     unittest.main()
